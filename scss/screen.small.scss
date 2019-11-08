@@ -18,6 +18,45 @@
   padding-top: 0;
 }
 
+body.front #main .queenslaw-teasers {
+  .teaser:nth-child(odd) {
+    .teaser-image {
+      position: relative;
+      width: 100%;
+      right: 0;
+      height: 250px;
+      display: block;
+    }
+    article {
+      padding-left: 0;
+      padding-bottom: 0;
+      + ul {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 40px;
+      }
+    }
+  }
+  .teaser:nth-child(even) {
+    .teaser-image {
+      position: relative;
+      width: 100%;
+      left: 0;
+      height: 250px;
+      display: block;
+    }
+    article {
+      padding-left: 0;
+      padding-bottom: 0;
+      + ul {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 40px;
+      }
+    }
+  }
+}
+
 body.queenslaw-sub-site #branding {
   padding: 20px;
   top: 0;
