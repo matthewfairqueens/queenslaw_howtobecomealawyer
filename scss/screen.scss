@@ -8,6 +8,15 @@ $blue: #11335d;
 $yellow: #eebd31;
 $default-block-padding: 0 20px;
 $min-width: 960px;
+$tirshgreen: #00A65E;
+$tirshbrown: #915B3D;
+$tirshpurple: #662D91;
+$tirsh175grey: #687767;
+$tirsh175brown: #9A5041;
+$tirsh175orange: #DE7736;
+$purple: #643695;
+$green: #007359;
+$orange: #de7736;
 
 @mixin border-radius($border-radius) {
   -webkit-border-radius: $border-radius;
@@ -38,30 +47,17 @@ body.queenslaw-sub-site #header {
   }
 }
 
-body.has-queenslaw-alternate-teasers #main .queenslaw-teasers .teaser.has-teaser-image > .content {
-  background-color: rgba(0,0,0,0.03667);
+body.front #main .queenslaw-teasers .teaser:nth-child(1) {
+  background-color: $purple;
 }
-
-body.has-queenslaw-alternate-teasers #main .queenslaw-teasers .teaser:nth-child(4) {
-  color: #000;
-  text-shadow: 0px 0px 6px white;
-  a {
-    color: #000;
-    text-shadow: 0px 0px 4px white;
-    display: none;
-  }
+body.front #main .queenslaw-teasers .teaser:nth-child(2) {
+  background-color: $orange;
 }
-
-body.has-queenslaw-alternate-teasers #main .queenslaw-teasers .teaser:nth-child(5) {
-  background-color: #11335d;
+body.front #main .queenslaw-teasers .teaser:nth-child(3) {
+  background-color: $yellow;
 }
-
-body.has-queenslaw-alternate-teasers #main .queenslaw-teasers .teaser:nth-child(6) {
-  display: none;
-}
-
-body.has-queenslaw-alternate-teasers #main .queenslaw-teasers .teaser:nth-child(7) {
-  display: none;
+body.front #main .queenslaw-teasers .teaser:nth-child(4) {
+  background-color: $green;
 }
 
 #main .queenslaw-teasers .teaser:nth-child(4) ul.links.inline li.node-readmore a {
@@ -113,61 +109,236 @@ body.has-queenslaw-alternate-teasers #main .queenslaw-teasers .teaser:nth-child(
     content: '';
   }
 }
-body.front #main {
-  .node--view-mode-full {
-    .field {
-      margin-bottom: 0;
-    }
+body.front {
+  .content-container {
+    padding: 0;
+    max-width: none;
   }
-  .queenslaw-alternate-teasers {
-    .teaser {
-      .queenslaw-teasers .views-row {
+  #main {
+    padding: 0;
+    .node--view-mode-full {
+      .field {
+        margin-bottom: 0;
+      }
+    }
+    .queenslaw-teasers {
+      margin: 0;
+      .teaser {
+        position: relative;
+        margin: 0;
+        background-color: $blue;
         padding: 0;
-        width: auto;
-        .teaser-image,
-        footer .bundle,
-        footer .category {
-          display: none;
+        width: 100%;
+        min-height: 400px;
+        float: none;
+        color: $white;
+        a {
+          font-weight: $bold-font-weight;
+          color: inherit;
         }
-        h4 {
-          margin: 8px 0 4px 0;
-          font-size: 1.25em;
-          a {
-            font-weight: $bold-font-weight;
+        .teaser-image {
+          position: absolute;
+          top: 0;
+          right: $one-third;
+          bottom: 0;
+          left: 0;
+          margin: 0;
+          background-position: left center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: scroll;
+          background-origin: padding-box;
+          background-clip: padding-box;
+          background-color: transparent;
+          padding: 0;
+          height: 100%;
+        }
+        article {
+          padding-top: 40px;
+          padding-bottom: 40px;
+          padding-left: $two-thirds;
+          > .fields {
+            padding: 0 40px;
+            h3 {
+              text-transform: uppercase;
+            }
+          }
+          + ul {
+            border-top: none;
+          }
+          ul.links.inline {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            padding: 0 40px 20px 0;
+            font-size: 1em;
+            li.node-readmore a {
+              margin: 0;
+              border: none;
+              padding-right: 36px;
+              width: auto;
+              height: auto;
+              white-space: nowrap;
+              @include border-radius(0);
+            }
+            li.node-readmore a:before {
+              top: 0;
+              left: 0;
+              content: '';
+              margin-right: 0;
+            }
+            li.node-readmore a span {
+              position: absolute;
+              top: -3px;
+              right: 40px;
+              display: block;
+              border: 2px solid $white;
+              width: 20px;
+              height: 20px;
+              overflow: hidden;
+              white-space: nowrap;
+              font-size: 1.5em;
+              color: $white;
+              @include border-radius(50%);
+            }
+            li.node-readmore a span:before {
+              position: relative;
+              top: -5px;
+              left: 3px;
+              content: '+';
+              margin-right: 20px;
+            }
           }
         }
       }
-  .teaser.has-teaser-image > .content {
-    background-color: rgba(0, 0, 0, 0.03334);
-  }
+      .teaser {
+        article {
+          + ul {
+            margin: 0 40px;
+          }
+        }
+      }
+      .teaser:nth-child(even) {
+        .teaser-image {
+          right: 0;
+          left: $one-third;
+          background-position: right center;
+        }
+        article {
+          padding-right: $two-thirds;
+          padding-left: 0;
+          + ul {
+            padding-right: $two-thirds;
+            padding-left: 0;
+
+          }
+          ul.links.inline {
+            display: none;
+            right: $two-thirds;
+          }
+        }
+      }
+      .teaser:nth-child(odd) {
+        .teaser-image {
+          left: 0;
+          right: $one-third;
+          background-position: right center;
+        }
+        article {
+          padding-left: $two-thirds;
+          padding-right: 0;
+          + ul {
+            padding-left: $two-thirds;
+            padding-right: 0;
+
+          }
+          ul.links.inline {
+            display: none;
+            left: $two-thirds;
+          }
+        }
+      }
+      .teaser-conflict-resolution-as-science {
+        background-color: $red;
+      }
+      .teaser-research {
+        background-color: $blue;
+      }
+      .teaser-advisory {
+        background-color: $purple;
+      }
+       .teaser-news {
+        background-color: $green;
+      }
+      .teaser-incubator {
+        background-color: $orange;
+      }
+      .teaser-education {
+        background-color: $yellow;
+        color: $dark-grey;
+        article {
+          ul.links.inline {
+            li.node-readmore a span {
+              border-color: $dark-grey;
+              color: $dark-grey;
+            }
+          }
+        }
+      }
     }
-    .teaser:nth-child(3) {
-      background-color: $yellow;
-      float: right;
-      color: $dark_grey;
-      a {
+    .queenslaw-alternate-teasers {
+      .teaser {
+        .queenslaw-teasers .views-row {
+          padding: 0;
+          width: auto;
+          .teaser-image,
+          footer .bundle,
+          footer .category {
+            display: none;
+          }
+          h4 {
+            margin: 8px 0 4px 0;
+            font-size: 1.25em;
+            a {
+              font-weight: $bold-font-weight;
+            }
+          }
+        }
+        .teaser.has-teaser-image > .content {
+          background-color: rgba(0, 0, 0, 0.03334);
+        }
+      }
+      .teaser:nth-child(3) {
+        background-color: $yellow;
+        float: right;
         color: $dark_grey;
+        a {
+          color: $dark_grey;
+        }
+        ul.links.inline li.node-readmore a {
+          border-color: $dark_grey;
+        }
       }
-      ul.links.inline li.node-readmore a {
-        border-color: $dark_grey;
+      .teaser:nth-child(n+4) {
+        height: 400px;
       }
+      .teaser:nth-child(4),
+      .teaser:nth-child(5),
+      .teaser:nth-child(6),
+      .teaser:nth-child(7) {
+        width: 25%;
+      }
+      .teaser:nth-child(7) {
+        float: right;
+      }
+  /* Chrome doesn't seem to be able to do math correctly with one of the teasers floated
+     right, so add a background color to conceal that fact. */
+      background-color: $tirsh175grey;
     }
-    .teaser:nth-child(n+4) {
-      height: 400px;
+    .queenslaw-alternate-teasers:after {
+      @include clearfix();
     }
-    .teaser:nth-child(4),
-    .teaser:nth-child(5) {
-      width: 50%;
-    }
-    .teaser:nth-child(7) {
-      float: right;
-    }
-/* Chrome doesn't seem to be able to do math correctly with one of the teasers floated
-   right, so add a background color to conceal that fact. */
-    background-color: $red;
-  }
-  .queenslaw-alternate-teasers:after {
-    @include clearfix();
   }
 }
 #main .queenslaw-teasers,
