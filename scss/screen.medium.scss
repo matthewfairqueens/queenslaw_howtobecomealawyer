@@ -36,6 +36,30 @@ body.queenslaw-sub-site #header #block-mainnavigation .menu-item--statement {
 body.front #main .queenslaw-alternate-teasers .teaser:nth-child(n+4) {
   height: 500px;
 }
+body.front #main .queenslaw-teasers {
+  .teaser:nth-child(even) {
+    .teaser-image {
+      left: 50%;
+    }
+    article {
+      padding-right: 50%;
+      + ul {
+        padding-right: 50%;
+      }
+    }
+  }
+  .teaser:nth-child(odd) {
+    .teaser-image {
+      right: 50%;
+    }
+    article {
+      padding-left: 50%;
+      + ul {
+        padding-left: 50%;
+      }
+    }
+  }
+}
 #header > div .header-content #block-mainnavigation .submenu li a.is-active {
   color: #fff;
 }
